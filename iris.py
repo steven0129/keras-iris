@@ -26,8 +26,11 @@ myModel = lib.model2()
 history = myModel.fit(Xtrain, Ytrain, epochs=400,
                       validation_split=0.2, verbose=0)
 
+lib.pltLearningCurve(history)
+
 # evaluate model
-myModel.evaluate(Xtest, Ytest)
+loss, accuracy = myModel.evaluate(Xtest, Ytest)
+print(accuracy)
 
 # predict by model
 result = lib.predict([5.1, 3.5, 1.4, 0.2], myModel)
